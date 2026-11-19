@@ -1,0 +1,7 @@
+# The bundle patch: one plugin, no config needed.
+#
+# `id` is the plugin id inside the app, `name` is the package the loader
+# imports — both are the package name here, the same way dsh-see-now does it.
+- insert:
+    - id: dsh-see-act
+      name: dsh-see-act

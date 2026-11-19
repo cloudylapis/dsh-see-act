@@ -1,0 +1,77 @@
+{
+  "name": "dsh-see-act",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "See and act in the same call: annotated before/after frames around real mouse and keyboard input, built to sit next to dsh-see-now.",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "locale/",
+    "icon.svg",
+    "assets/",
+    "screenshots.json",
+    "cordis.patch.yml",
+    "docs/",
+    "README.md",
+    "NOTICE",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1"
+  },
+  "os": [
+    "win32"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "e2e": "node test/e2e-tools.mjs",
+    "smoke": "node test/smoke.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "deepseek-harness",
+    "cordis",
+    "computer-use",
+    "screen-automation",
+    "ui-automation",
+    "mouse",
+    "keyboard",
+    "see-now",
+    "windows"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "cloudylapis",
+    "url": "https://github.com/cloudylapis"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudylapis/dsh-see-act.git"
+  },
+  "homepage": "https://github.com/cloudylapis/dsh-see-act#readme",
+  "bugs": {
+    "url": "https://github.com/cloudylapis/dsh-see-act/issues"
+  },
+  "peerDependencies": {
+    "dsh-see-now": ">=0.2.0"
+  },
+  "peerDependenciesMeta": {
+    "dsh-see-now": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

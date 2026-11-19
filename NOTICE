@@ -1,0 +1,36 @@
+# NOTICE
+
+dsh-see-act is MIT licensed. It stands on two other projects:
+
+## dsh-plugin-real-input (MIT)
+
+`lib/win32ps.mjs` started from the PowerShell + P/Invoke approach used by
+[dsh-plugin-real-input](https://github.com/) and keeps its C# `DshNative`
+declarations (SetCursorPos, mouse_event, SendInput, ShowWindow, EnumWindows,
+GetWindowRect, AttachThreadInput, …) essentially unchanged, with three additions:
+
+* `SetProcessDpiAwarenessContext(-4)` is now called before *any* coordinate is
+  read or written, and monitor geometry comes from `System.Windows.Forms.Screen`,
+  so the plugin sees physical pixels on a scaled display;
+* `FindWindowByPid` finds the see-now floating window even though tkinter
+  windows created with `overrideredirect` have no title;
+* the screen capture, the annotation and the input all run inside a single
+  `powershell.exe` process per tool call.
+
+If you have dsh-plugin-real-input installed, keep it: the two plugins do not
+share state, and `real_*` remains the right tool for CDP-page clicks and
+full-resolution screenshots.
+
+## dsh-see-now (PolyForm Noncommercial 1.0.0)
+
+see-act does not copy or modify see-now. It optionally imports
+`dsh-see-now/chat` to write narration into the same floating window and reads
+`~/.dsh/see-now-window.pid` to know where that window is, so a click that would
+land behind it can step around it. Both are optional and degrade to no-ops when
+see-now is not installed.
+
+## FFmpeg
+
+The optional black-screen fallback runs `ffmpeg` (from `DSH_FFMPEG_PATH` or the
+`PATH`) once per affected call, with the same `ddagrab` filter see-now uses.
+FFmpeg is not bundled.

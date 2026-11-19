@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "看屏操作",
+    "description": "给 dsh-see-now 的实时视野配一双手：每次点击或输入都自带前后两张标注过的屏幕图。",
+    "detail": "docs/DETAIL.md"
+  }
+}
